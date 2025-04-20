@@ -1,19 +1,20 @@
 Pod::Spec.new do |s|
-  s.name             = 'JitsiMeetSDK'
+  s.name             = 'jitsi_meet_flutter_sdk'
   s.version          = '11.1.1'
-  s.summary          = 'Custom fork of Jitsi Meet SDK'
-  s.description      = 'Your modified Jitsi Meet SDK'
-  s.homepage         = 'https://github.com/88888888oleg/jitsi-meet'
-  s.license          = { :type => 'Apache-2.0', :file => 'LICENSE' }
-  s.author           = { 'oleg' => 'you@example.com' }
-  s.source           = { :git => 'https://github.com/88888888oleg/jitsi-meet.git', :branch => 'mobile_branch' }
-
+  s.summary          = 'Jitsi Meet Flutter SDK'
+  s.description      = 'Jitsi Meet Flutter SDK — JitsiMeetSDK'
+  s.homepage         = 'https://github.com/88888888oleg/jitsi-meet-flutter-sdk'
+  s.license          = { :file => '../LICENSE' }
+  s.author           = { 'Your Company' => 'email@example.com' }
+  s.source           = { :path => '.' }
+  s.source_files     = 'Classes/**/*'
+  s.dependency       'Flutter'
+  s.dependency       'JitsiMeetSDK'
   s.platform         = :ios, '15.0'
-  s.swift_version    = '5.0'
 
-  s.source_files     = 'ios/sdk/src/**/*.{h,m,mm,swift}'
-
-  s.public_header_files = 'ios/sdk/src/**/*.h'
-
-  s.dependency 'WebRTC'
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386'
+  }
+  s.swift_version = '5.0'
 end
